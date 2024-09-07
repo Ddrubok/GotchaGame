@@ -1,2 +1,2 @@
 ﻿n_RefillMoneyInterval,n_RefillMoneyCount,n_DefaultMoneyCount,n_RequireGachaPrice,n_MaxMoneyLimit,n_MinimumAmount ,f_LevelUpTextTime
-1,0.75,50000000,100,100000,100,1.5
+1,0.75,500,100,100000,100,1.5
