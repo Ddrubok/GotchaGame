@@ -5,11 +5,15 @@ using static Define;
 
 public class GameScene : BaseScene
 {
+    [SerializeField]
+    private GameObject canvas;
     public override bool Init()
     {
         if (base.Init() == false)
             return false;
         Managers.Data.Init();
+
+        canvas.SetActive(true);
         return true;
     }
 
