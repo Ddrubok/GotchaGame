@@ -32,13 +32,11 @@ public class UI_RandomGotcha : UI_Buttons
 
     public override void OnPointerDown(PointerEventData eventData)
     {
-        if(Price <= Managers.Game.Gold)
+        if(Managers.Game.CanBuy(Price))
         {
-            Managers.Game.Gold -= Price;
-
             UI_GotchaPopup popup = Managers.UI.ShowPopupUI<UI_GotchaPopup>("Prefabs\\GotchaPopUP");
             popup.GotchaStart(GotchaNumberOfTimes);
+
         }
-        //TODO
     }
 }

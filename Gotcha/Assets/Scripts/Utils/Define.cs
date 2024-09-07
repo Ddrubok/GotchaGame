@@ -28,6 +28,7 @@ public static class Define
     {
         Resources,
         Gotcha,
+        Enhance,
     }
 
     public enum EUIEvent

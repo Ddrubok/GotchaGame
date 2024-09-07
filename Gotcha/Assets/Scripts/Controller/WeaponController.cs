@@ -6,6 +6,6 @@ public class WeaponController : ItemController
 {
     public override void PowerApplication()
     {
-        Managers.Game.CharacterAttack += (ulong)UpgradePower;
+        Managers.Game.AbsoluteAttackValue += (ulong)UpgradePower;
     }
 }

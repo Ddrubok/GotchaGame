@@ -11,6 +11,7 @@ public class UI_Tap : UI_Base
     {
         Resources,
         Gotcha,
+        Enhance,
     }
 
     public override bool Init()
@@ -38,7 +39,7 @@ public class UI_Tap : UI_Base
 
     void CloseAllTap()
     {
-        for (int i = 0; i <= (int)GameObjects.Gotcha; i++)
+        for (int i = 0; i <= (int)GameObjects.Enhance; i++)
         {
             GetObject(i).SetActive(false);
         }

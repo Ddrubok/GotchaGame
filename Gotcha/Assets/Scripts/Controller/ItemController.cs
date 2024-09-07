@@ -151,8 +151,7 @@ public abstract class ItemController : BaseController
     {
         Level += 1;
         UpgradeSetting();
-
-        if (Managers.Game.EquipmentTap == Type && LevelUpCoroutine == null)
+        if (Managers.Game.EquipmentTap == Type && LevelUpCoroutine == null && Level > 1)
             LevelUpCoroutine = StartCoroutine(LevelUpTextOnOff());
 
     }
@@ -200,7 +199,7 @@ public abstract class ItemController : BaseController
         Slider = transform.GetChild((int)Item.StatusOfEquipmen).GetComponent<Slider>();
 
         AbsoluteNumber = transform.GetChild((int)Item.AbsoluteNumber).GetChild(0).GetComponent<TextMeshProUGUI>();
-      
+
 
         return true;
     }
@@ -215,21 +214,21 @@ public abstract class ItemController : BaseController
 
     Sprite GetTypeImage()
     {
-        string a= "Ui\\";
+        string a = "Ui\\";
 
-        if(Type==ItemType.Weapon)
+        if (Type == ItemType.Weapon)
         {
             a += "Attack";
         }
-        else if(Type==ItemType.Armor)
+        else if (Type == ItemType.Armor)
         {
             a += "Defense";
         }
-        else if(Type==ItemType.Shield)
+        else if (Type == ItemType.Shield)
         {
             a += "Health";
         }
-        Sprite get = Managers.Object.GetSprite(a); 
+        Sprite get = Managers.Object.GetSprite(a);
         return get;
     }
     public virtual void AfterInit(Rating rate, ItemType it, int id)
@@ -254,7 +253,7 @@ public abstract class ItemController : BaseController
         SetVolumeAndNextLevel();
     }
 
-   
+
 
     public int GetUpgradePower(ItemOptionUpgradeData id)
     {

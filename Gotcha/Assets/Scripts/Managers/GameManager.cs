@@ -22,11 +22,22 @@ public class GameManager
         set
         {
             _gold = value;
-            //if (_gold >= (ulong)MaxMoneyLimit)
-            //    _gold = (ulong)MaxMoneyLimit;
+            if (_gold >= (ulong)MaxMoneyLimit)
+                _gold = (ulong)MaxMoneyLimit;
 
             OnGoldChanged?.Invoke(_gold);
         }
+    }
+
+   public bool CanBuy(ulong gold)
+    {
+        if(Gold >= gold)
+        {
+            Gold -= gold;
+            return true;
+        }
+
+        return false;
     }
 
     #endregion
@@ -53,7 +64,6 @@ public class GameManager
     #endregion
 
     #region CharacterAttack
-
     public event Action<ulong> OnCharacterAttackChanged;
     private ulong _characterAttack = 0;
     public ulong CharacterAttack
@@ -64,6 +74,31 @@ public class GameManager
             _characterAttack = value;
             BattlePowerCal();
             OnCharacterAttackChanged?.Invoke(_characterAttack);
+        }
+    }
+    private ulong _absoluteAttackValue;
+
+    public ulong AbsoluteAttackValue
+    {
+        get { return _absoluteAttackValue; }
+
+        set
+        {
+            _absoluteAttackValue = value;
+
+            CharacterAttack = (ulong)(_absoluteAttackValue * AttMagnification);
+        }
+    }
+
+    private float _attackMagnification = 1.0f;
+    public float AttMagnification 
+    {
+        get { return _attackMagnification; }
+
+        set
+        {
+            _attackMagnification = value;
+            CharacterAttack = (ulong)(AbsoluteAttackValue * _attackMagnification);
         }
     }
 

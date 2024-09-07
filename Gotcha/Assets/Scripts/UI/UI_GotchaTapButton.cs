@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using static Define;
 
-public class UI_GotchaButton : UI_TapButton
+public class UI_GotchaTapButton : UI_TapButton
 {
 
     public override bool Init()
