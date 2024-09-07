@@ -7,8 +7,37 @@ using UnityEngine.EventSystems;
 
 public abstract class UI_EnhanceButtons : UI_Buttons
 {
-    int _MoneyValue;
+    float _value;
 
+    public float Value
+    {
+        get { return _value; }
+
+        set
+        {
+            _value = value;
+            CurrentValueText.text = _value.ToString("F2");
+            ChangeValueText.text = (IncreaseValue + _value).ToString("F2");
+            ValueApllication(Value);
+        }
+    }
+
+    public abstract void ValueApllication(float v);
+    
+
+    float _increaseValue;
+
+    public float IncreaseValue
+    {
+        get { return _increaseValue; }
+
+        set
+        {
+            _increaseValue = value;
+        }
+    }
+
+    int _MoneyValue;
     int Money
     {
         get { return _MoneyValue; }
@@ -78,5 +107,8 @@ public abstract class UI_EnhanceButtons : UI_Buttons
         }
     }
 
-    public abstract void ApplicationButton();
+    public virtual void ApplicationButton()
+    {
+        Value += IncreaseValue;
+    }
 }

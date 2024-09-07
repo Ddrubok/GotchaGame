@@ -54,6 +54,7 @@ public class UI_GotchaPopup : UI_Popup
     {
         for (int i = 0; i < num; i++)
         {
+            //GotchaTest();
             Gotcha();
         }
     }
@@ -128,6 +129,24 @@ public class UI_GotchaPopup : UI_Popup
     public void Gotcha()
     {
         int num = Random.Range((int)ItemType.Weapon, (int)ItemType.None )+1;
+        Rating rate = GetRating(Managers.Data.GachaGradeInfoDataDic[num]);
+        int itemNum = num * 100 + RatingNumber(rate);
+
+        if (itemObject.ContainsKey(itemNum))
+        {
+            itemObject[itemNum].AbsoluteVolume++;
+        }
+        else
+        {
+            ItemController ic = Spawn(num - 1);
+            ic.AfterInit(rate, (ItemType)num - 1, itemNum);
+            itemObject.Add(itemNum, ic);
+        }
+    }
+
+    public void GotchaTest()
+    {
+        int num =1;
         Rating rate = GetRating(Managers.Data.GachaGradeInfoDataDic[num]);
         int itemNum = num * 100 + RatingNumber(rate);
 

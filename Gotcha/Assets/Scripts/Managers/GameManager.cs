@@ -91,7 +91,7 @@ public class GameManager
     }
 
     private float _attackMagnification = 1.0f;
-    public float AttMagnification 
+    public float AttMagnification
     {
         get { return _attackMagnification; }
 
@@ -99,6 +99,8 @@ public class GameManager
         {
             _attackMagnification = value;
             CharacterAttack = (ulong)(AbsoluteAttackValue * _attackMagnification);
+
+            
         }
     }
 
@@ -119,6 +121,32 @@ public class GameManager
         }
     }
 
+    private ulong _absoluteHPValue;
+
+    public ulong AbsoluteHPValue
+    {
+        get { return _absoluteHPValue; }
+
+        set
+        {
+            _absoluteHPValue = value;
+
+            CharacterHP = (ulong)(_absoluteHPValue * HPMagnification);
+        }
+    }
+
+    private float _HPMagnification = 1.0f;
+    public float HPMagnification
+    {
+        get { return _HPMagnification; }
+
+        set
+        {
+            _HPMagnification = value;
+            CharacterHP = (ulong)(AbsoluteHPValue * _HPMagnification);
+        }
+    }
+
     #endregion
 
     #region CharacterShiled
@@ -135,6 +163,33 @@ public class GameManager
             OnCharacterShiledChanged?.Invoke(_characterShiled);
         }
     }
+
+    private ulong _absoluteShiledValue;
+
+    public ulong AbsoluteShiledValue
+    {
+        get { return _absoluteShiledValue; }
+
+        set
+        {
+            _absoluteShiledValue = value;
+
+            CharacterShiled = (ulong)(_absoluteShiledValue * ShiledMagnification);
+        }
+    }
+
+    private float _shiledMagnification = 1.0f;
+    public float ShiledMagnification
+    {
+        get { return _shiledMagnification; }
+
+        set
+        {
+            _shiledMagnification = value;
+            CharacterShiled = (ulong)(AbsoluteShiledValue * _shiledMagnification);
+        }
+    }
+
 
     #endregion
 

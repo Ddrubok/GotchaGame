@@ -43,16 +43,16 @@ public class UI_PlayerInfo : UI_Base
     {
         _attack.text = Util.ConvertToCurrencyFormat(gt);
     }
-
-    private void HandleOnCharacterHPChanged(ulong gt)
+    private void HandleOnCharacterShiledChanged(ulong gt)
     {
         _shield.text = Util.ConvertToCurrencyFormat(gt);
     }
-
-    private void HandleOnCharacterShiledChanged(ulong gt)
+    private void HandleOnCharacterHPChanged(ulong gt)
     {
         _HP.text = Util.ConvertToCurrencyFormat(gt);
     }
+
+  
 
     //private void OnDestroy()
     //{

@@ -5,39 +5,7 @@ using UnityEngine;
 
 public class UI_EnhanceAttackButton : UI_EnhanceButtons
 {
-   float _value;
-
-    public float Value
-    {
-        get { return _value; }
-
-        set
-        {
-            _value = value;
-            CurrentValueText.text = _value.ToString("F2");
-            ChangeValueText.text = (IncreaseValue + _value).ToString("F2");
-
-
-            Managers.Game.AttMagnification = _value;
-        }
-    }
-
-    float _increaseValue;
-
-    public float IncreaseValue
-    {
-        get { return _increaseValue; }
-
-        set
-        {
-            _increaseValue = value;
-        }
-    }
-
-    public override void ApplicationButton()
-    {
-        Value += IncreaseValue;
-    }
+  
 
     public override bool Init()
     {
@@ -57,4 +25,8 @@ public class UI_EnhanceAttackButton : UI_EnhanceButtons
         return true;
     }
 
+    public override void ValueApllication(float v)
+    {
+        Managers.Game.AttMagnification = v;
+    }
 }

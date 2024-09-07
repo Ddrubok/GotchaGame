@@ -46,6 +46,7 @@ public abstract class ItemController : BaseController
             _upgradePower = value;
         }
     }
+    protected int DefaultPower;
 
     [SerializeField]
     private int _power;
@@ -62,7 +63,7 @@ public abstract class ItemController : BaseController
         }
     }
 
-    private int _level;
+    private int _level = 1;
     public int Level
     {
         get
@@ -123,6 +124,7 @@ public abstract class ItemController : BaseController
             }
 
             Slider.value = (float)_volume / _nextLevelVolume;
+            SetVolumeAndNextLevel();
         }
     }
 
@@ -238,9 +240,11 @@ public abstract class ItemController : BaseController
         Rate = rate;
         AbsoluteVolume++;
 
-        Power = Managers.Data.ItemListDataDic[id].DefaultValue;
+        DefaultPower = Managers.Data.ItemListDataDic[id].DefaultValue;
+        Power = DefaultPower;
 
         RatingImage.color = GetColor(Rate);
+        InitUpgradeSetting();
     }
 
     public void UpgradeSetting()
@@ -248,11 +252,19 @@ public abstract class ItemController : BaseController
         int CheckLevel = GetTransformedValue(Level, Managers.Data.ItemOptionUpgradeDataDic);
         NextLevelVolume = Managers.Data.ItemOptionUpgradeDataDic[CheckLevel].UpgradeCost;
         UpgradePower = GetUpgradePower(Managers.Data.ItemOptionUpgradeDataDic[CheckLevel]);
+
         Power += UpgradePower;
 
-        SetVolumeAndNextLevel();
+        //SetVolumeAndNextLevel();
     }
 
+    public void InitUpgradeSetting()
+    {
+        int CheckLevel = GetTransformedValue(Level, Managers.Data.ItemOptionUpgradeDataDic);
+        NextLevelVolume = Managers.Data.ItemOptionUpgradeDataDic[CheckLevel].UpgradeCost;
+        UpgradePower = GetUpgradePower(Managers.Data.ItemOptionUpgradeDataDic[CheckLevel]);
+        SetVolumeAndNextLevel();
+    }
 
 
     public int GetUpgradePower(ItemOptionUpgradeData id)
@@ -280,7 +292,10 @@ public abstract class ItemController : BaseController
         AbsoluteNumber.transform.parent.gameObject.SetActive(false);
         VolumeApplication(AbsoluteVolume);
         gameObject.BindEvent(OnPointerDown, type: Define.EUIEvent.Click);
+        MoveSetting();
     }
+
+    public abstract void MoveSetting();
 
     public void VolumeApplication(int num)
     {

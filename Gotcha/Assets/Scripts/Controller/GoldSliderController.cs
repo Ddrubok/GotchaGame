@@ -44,9 +44,7 @@ public class GoldSliderController : SliderController
     void FinishTimer()
     {
         TimerInit();
-        Debug.Log("¿Ï·á");
         Managers.Game.SaveGold += Define.RefillMoneyCount;
-        //TODO
     }
     private void UpdateTimer()
     {
