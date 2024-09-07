@@ -1,0 +1,5 @@
+﻿n_UpgradeBelowLimit,n_UpgradeCost,n_NormalUpgradeValue,n_RareUpgradeValue,n_EpicUpgradeValue
+10,2,1,10,100
+100,3,2,20,200
+1000,4,3,30,300
+10000,5,4,40,400
