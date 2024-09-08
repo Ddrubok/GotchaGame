@@ -211,9 +211,24 @@ public abstract class ItemController : BaseController
         UI_ItemPopup popup = Managers.UI.ShowPopupUI<UI_ItemPopup>("Prefabs\\ItemPopUP");
         Sprite get = GetTypeImage();
         popup.SetPopUp(ItemImage.sprite, RatingImage.color, get, LevelText.text, Volume_NextLevelVolume.text, Power, Slider.value);
+        ItemSound();
         Debug.Log(Type + " 오픈 아이템 PopUp창");
     }
-
+    void ItemSound()
+    {
+        if (Type == ItemType.Weapon)
+        {
+            Managers.Sound.Play(ESound.Effect, "sfx_1");
+        }
+        else if (Type == ItemType.Shield)
+        {
+            Managers.Sound.Play(ESound.Effect, "sfx_3");
+        }
+        else if (Type == ItemType.Armor)
+        {
+            Managers.Sound.Play(ESound.Effect, "sfx_2");
+        }
+    }
     Sprite GetTypeImage()
     {
         string a = "Ui\\";

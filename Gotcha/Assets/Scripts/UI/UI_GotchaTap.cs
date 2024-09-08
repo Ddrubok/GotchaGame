@@ -40,7 +40,10 @@ public class UI_GotchaTap : UI_Base
     void ChangeTap(int n)
     {
         CloseAllTap();
+
         GetObject(n).SetActive(true);
+      
+        
     }
 
     void CloseAllTap()

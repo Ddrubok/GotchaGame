@@ -9,7 +9,7 @@ public class ObjectManager
 {
     public Dictionary<string, Sprite> DicSprite = new Dictionary<string, Sprite>();
 
-    public Dictionary<Define.ItemType, Dictionary<int, ItemController>> Item = new Dictionary<Define.ItemType, Dictionary<int, ItemController>>();
+    public Dictionary<ItemType, Dictionary<int, ItemController>> Item = new Dictionary<ItemType, Dictionary<int, ItemController>>();
 
     public T Spawn<T>(Vector3 position, int templateID = 0, Transform parent = null) where T : BaseController
     {

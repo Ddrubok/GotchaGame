@@ -22,6 +22,7 @@ public class UI_TapButton : UI_Buttons
     {
         Debug.Log(GameTap + " ¹öÆ°");
         Managers.Game.GameTap = GameTap;
+        Managers.Sound.Play(ESound.Effect, "sfx_5");
     }
 
     public  void HandleOnGameTapChanged(GameTap gt)

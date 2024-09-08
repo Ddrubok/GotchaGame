@@ -54,6 +54,7 @@ public class UI_GotchaPopup : UI_Popup
     {
         for (int i = 0; i < num; i++)
         {
+            
             //GotchaTest();
             Gotcha();
         }

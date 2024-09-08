@@ -34,9 +34,9 @@ public class UI_RandomGotcha : UI_Buttons
     {
         if(Managers.Game.CanBuy(Price))
         {
+            Managers.Sound.Play(ESound.Effect, "sfx_7");
             UI_GotchaPopup popup = Managers.UI.ShowPopupUI<UI_GotchaPopup>("Prefabs\\GotchaPopUP");
             popup.GotchaStart(GotchaNumberOfTimes);
-
         }
     }
 }

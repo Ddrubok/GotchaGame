@@ -58,7 +58,7 @@ public class UI_ResourcesTap : UI_Base
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        Debug.Log(" ¹öÆ°");
+        Managers.Sound.Play(ESound.Effect, "sfx_6");
         ulong check = (ulong)Managers.Game.SaveGold;
         Managers.Game.SaveGold -= check;
         Managers.Game.Gold += check;

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static Define;
 
 public abstract class UI_EnhanceButtons : UI_Buttons
 {
@@ -102,6 +103,7 @@ public abstract class UI_EnhanceButtons : UI_Buttons
     {
         if (Managers.Game.CanBuy((ulong)Money))
         {
+            Managers.Sound.Play(ESound.Effect, "LevelUp");
             Money += IncreaseInMoney;
             ApplicationButton();
         }
