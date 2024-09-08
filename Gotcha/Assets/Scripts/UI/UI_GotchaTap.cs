@@ -41,6 +41,7 @@ public class UI_GotchaTap : UI_Base
     {
         CloseAllTap();
 
+        Managers.Sound.Play(ESound.Effect, "sfx_5");
         GetObject(n).SetActive(true);
       
         
