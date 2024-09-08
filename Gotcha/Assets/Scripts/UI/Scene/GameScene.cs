@@ -13,7 +13,7 @@ public class GameScene : BaseScene
             return false;
         Managers.Data.Init();
 
-        //Managers.Sound.Play(ESound.Bgm, "Bgm");
+        Managers.Sound.Play(ESound.Bgm, "Bgm");
 
         canvas.SetActive(true);
         return true;
